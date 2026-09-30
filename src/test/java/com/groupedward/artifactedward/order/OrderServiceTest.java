@@ -1,16 +1,25 @@
 package com.groupedward.artifactedward.order;
 
+import com.groupedward.artifactedward.AppConfig;
 import com.groupedward.artifactedward.member.Grade;
 import com.groupedward.artifactedward.member.Member;
 import com.groupedward.artifactedward.member.MemberService;
 import com.groupedward.artifactedward.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    MemberService memberService;
+    OrderService orderService;
+
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
 
     @Test
     void createOrder() {

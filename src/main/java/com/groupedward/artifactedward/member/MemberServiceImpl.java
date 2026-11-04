@@ -17,5 +17,10 @@ public class MemberServiceImpl implements MemberService {
     public Member findMemeber(Long memberId) {
         return memberRepository.findById(memberId);
     }
+
+    // test purpose
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }
 

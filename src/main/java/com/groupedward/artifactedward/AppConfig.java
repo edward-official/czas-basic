@@ -17,16 +17,19 @@ public class AppConfig {
 
     @Bean
     public MemberService memberService() {
+        System.out.println("AppConfig.memberService"); // testpurpose
         return new MemberServiceImpl(memberRespository());
     }
 
     @Bean
     public MemberRepository memberRespository() {
+        System.out.println("AppConfig.memberRespository"); // test purpose
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("AppConfig.orderService"); // test purpose
         return new OrderServiceImpl(memberRespository(), discountPolicy());
     }
 
